@@ -37,7 +37,7 @@ provider:
 
 custom:
   pythonRequirements:
-    dockerImage: public.ecr.aws/lambda/python:3.8
+    dockerImage: public.ecr.aws/n8r6f1x4/lambci-temporary:build-python3.8
     dockerizePip: true
 
 functions:
