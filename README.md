@@ -9,6 +9,8 @@ authorLink: 'https://github.com/helveticafire'
 authorName: 'Ben Fitzgerald'
 authorAvatar: 'https://avatars0.githubusercontent.com/u/1323872?v=4&s=140'
 -->
+Graciously borrowed from [here](https://github.com/serverless/examples)
+
 # Serverless REST API
 
 This example demonstrates how to setup a [RESTful Web Services](https://en.wikipedia.org/wiki/Representational_state_transfer#Applied_to_web_services) allowing you to create, list, get, update and delete Todos. DynamoDB is used to store the data. This is just an example and of course you could use any data storage as a backend.
