@@ -1,11 +1,11 @@
 service: serverless-rest-api-with-pynamodb
 
-frameworkVersion: ">=1.1.0 <2.0.0"
+#frameworkVersion: ">=1.1.0 <2.50.0"
 
 plugins:
   - serverless-python-requirements
-
 package:
+  individually: true
   exclude:
     - node_modules/**
     - .idea/**
@@ -15,11 +15,12 @@ package:
     - package.json
     - package-lock.json
     - requirements.txt
+    - venv/**
 
 provider:
   name: aws
-  runtime: python2.7
-  region: eu-central-1
+  runtime: python3.8
+  region: us-west-2
   environment:
     DYNAMODB_TABLE: ${self:service}-${opt:stage, self:provider.stage}
   iamRoleStatements:
@@ -33,6 +34,10 @@ provider:
         - dynamodb:DeleteItem
         - dynamodb:DescribeTable
       Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE}"
+
+custom:
+  pythonRequirements:
+    dockerizePip: true
 
 functions:
   create:
@@ -58,10 +63,6 @@ functions:
           path: todos/{todo_id}
           method: get
           cors: true
-          integration: lambda
-          request:
-            paths:
-              todo_id: true
 
   update:
     handler: todos/update.update
@@ -71,9 +72,7 @@ functions:
           method: put
           cors: true
           integration: lambda
-          request:
-            paths:
-              todo_id: true
+
   delete:
     handler: todos/delete.delete
     events:
@@ -82,9 +81,6 @@ functions:
           method: delete
           cors: true
           integration: lambda
-          request:
-            paths:
-              todo_id: true
 
 resources:
   Resources:

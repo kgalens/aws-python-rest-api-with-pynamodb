@@ -11,8 +11,8 @@ class TodoModel(Model):
         if 'ENV' in os.environ:
             host = 'http://localhost:8000'
         else:
-            region = 'eu-central-1'
-            host = 'https://dynamodb.eu-central-1.amazonaws.com'
+            region = os.environ.get('AWS_REGION', 'us-west-2')
+            host = f'https://dynamodb.{region}.amazonaws.com'
 
     todo_id = UnicodeAttribute(hash_key=True, null=False)
     text = UnicodeAttribute(null=False)
