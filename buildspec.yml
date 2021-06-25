@@ -4,11 +4,13 @@ phases:
     commands:
       - npm install
       - npm install -g mocha
-      - npm install -g serverless
   build:
     commands:
-      - serverless package --stage devel
+      - serverless package --stage devel --package ./artifacts
   post_build:
     commands:
-
       - echo build complete
+artifacts:
+  files:
+    - '**/*'
+
