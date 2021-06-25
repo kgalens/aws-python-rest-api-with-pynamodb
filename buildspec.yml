@@ -4,9 +4,10 @@ phases:
     commands:
       - npm install
       - npm install -g mocha
+      - npm install -g serverless
   build:
     commands:
-      - npx serverless package --stage devel --package ./artifacts
+      - serverless package --stage devel --package ./artifacts
   post_build:
     commands:
       - echo build complete
