@@ -6,7 +6,7 @@ from todos.todo_model import TodoModel
 
 
 def create(event, context):
-    """ Adding more again documentation """
+    """ Adding  again documentation """
     data = json.loads(event['body'])
     if 'text' not in data:
         logging.error('Validation Failed')
