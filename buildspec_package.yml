@@ -7,8 +7,11 @@ phases:
       - npm install -g serverless
   build:
     commands:
-      - serverless deploy --stage devel --package ./artifacts
+      - serverless package --stage devel --package ./artifacts
   post_build:
     commands:
       - echo build complete
+artifacts:
+  files:
+    - '**/*'
       
