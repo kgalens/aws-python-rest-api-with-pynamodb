@@ -9,7 +9,7 @@ phases:
     commands:
       - ls ./artifacts
       - cat ./artifacts/serverless-state.json
-      - serverless deploy --stage devel --package ./artifacts
+      - serverless deploy --stage devel
   post_build:
     commands:
       - echo build complete
