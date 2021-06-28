@@ -4,7 +4,7 @@ phases:
     commands:
       - npm install
       - npm install -g mocha
-      - npm install -g serverless
+      - npm install -g serverless@1.4.0
   build:
     commands:
       - serverless package --stage devel --package ./artifacts
