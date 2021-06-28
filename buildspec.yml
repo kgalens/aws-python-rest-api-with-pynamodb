@@ -7,8 +7,6 @@ phases:
       - npm install -g serverless
   build:
     commands:
-      - ls ./artifacts
-      - cat ./artifacts/serverless-state.json
       - serverless deploy --stage devel
   post_build:
     commands:
