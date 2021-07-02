@@ -2,16 +2,14 @@ version: 0.2
 phases:
   install:
     commands:
+      - cd $SOURCE_DIRECTORY
       - npm install
       - npm install -g mocha
       - npm install -g serverless
   build:
     commands:
-      - serverless package --stage devel --package ./artifacts
+      - serverless deploy --stage $DEPLOYMENT_STAGE
   post_build:
     commands:
       - echo build complete
-artifacts:
-  files:
-    - '**/*'
       
